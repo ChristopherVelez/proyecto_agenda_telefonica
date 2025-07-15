@@ -7,74 +7,78 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.proyecto_agenda_telefonica.databinding.ActivityAgregarUsuarioBinding
+import com.example.proyecto_agenda_telefonica.databinding.ActivityEditarUsuarioBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class AgregarUsuarioActivity : AppCompatActivity() {
-
-    private lateinit var binding: ActivityAgregarUsuarioBinding
-
+class EditarUsuarioActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityEditarUsuarioBinding
+    private var usuario: UsuarioResponse? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        binding = ActivityAgregarUsuarioBinding.inflate(layoutInflater)
+        binding = ActivityEditarUsuarioBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        @Suppress("DEPRECATION")
+        usuario = intent.getParcelableExtra("usuario")
 
-        // Configurar evento de guardar
-        binding.btnGuardar.setOnClickListener {
-            agregarUsuario()
+
+        if (usuario == null) {
+            Toast.makeText(this, "Usuario no válido", Toast.LENGTH_SHORT).show()
+            finish()
+            return
         }
 
-        // Ajustes visuales
+        binding.etNombre.setText(usuario!!.nombre)
+        binding.etApellido.setText(usuario!!.apellido)
+        binding.etApodo.setText(usuario!!.apodo)
+        binding.etCedula.setText(usuario!!.cedula)
+
+        binding.btnEditar.setOnClickListener {
+            editarUsuario()
+        }
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
     }
-
-    private fun agregarUsuario() {
-        val cedula = binding.etCedula.text.toString().trim()
+    private fun editarUsuario() {
         val nombre = binding.etNombre.text.toString().trim()
         val apellido = binding.etApellido.text.toString().trim()
         val apodo = binding.etApodo.text.toString().trim()
+        val cedula = binding.etCedula.text.toString().trim()
 
-        if (cedula.isEmpty() || nombre.isEmpty() || apellido.isEmpty() || apodo.isEmpty()) {
+        if (nombre.isEmpty() || apellido.isEmpty() || apodo.isEmpty() || cedula.isEmpty()) {
             Toast.makeText(this, "Completa todos los campos", Toast.LENGTH_SHORT).show()
             return
         }
 
         if (!cedula.matches(Regex("\\d{10}"))) {
-            Toast.makeText(this, "La cédula debe tener exactamente 10 dígitos numéricos", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "La cédula debe tener exactamente 10 dígitos", Toast.LENGTH_SHORT).show()
             return
         }
 
-        val nuevoUsuario = UsuarioResponse(
+        val usuarioEditado = UsuarioResponse(
+            id = usuario?.id,
             nombre = nombre,
             apellido = apellido,
             apodo = apodo,
             cedula = cedula
         )
 
-        guardarUsuario(nuevoUsuario)
-    }
-
-    private fun guardarUsuario(usuario: UsuarioResponse) {
         CoroutineScope(Dispatchers.IO).launch {
             val api = RetrofitClient.getInstance().create(APIService::class.java)
-            val response = api.createUsuario(usuario)
+            val response = api.updateUsuario(usuarioEditado)
 
             runOnUiThread {
                 if (response.isSuccessful) {
-                    val mensaje = response.body()?.get("message") ?: "Usuario guardado con éxito"
-                    Toast.makeText(this@AgregarUsuarioActivity, mensaje, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@EditarUsuarioActivity, "Usuario actualizado", Toast.LENGTH_SHORT).show()
                     finish()
                 } else {
-                    Toast.makeText(this@AgregarUsuarioActivity, "Error al guardar el usuario", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@EditarUsuarioActivity, "Error al actualizar usuario", Toast.LENGTH_SHORT).show()
                 }
-
             }
         }
     }

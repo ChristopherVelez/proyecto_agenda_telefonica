@@ -16,28 +16,35 @@
         android:textSize="18sp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingHorizontal ="16dp"/>
 
     <TextView android:id="@+id/tvNombre"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Nombre"
         app:layout_constraintTop_toBottomOf="@id/tvCedula"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        android:paddingHorizontal ="16dp"/>
+
 
     <TextView android:id="@+id/tvApellido"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Apellido"
         app:layout_constraintTop_toBottomOf="@id/tvNombre"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        android:paddingHorizontal ="16dp"/>
+
 
     <TextView android:id="@+id/tvApodo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Apodo"
         app:layout_constraintTop_toBottomOf="@id/tvApellido"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        android:paddingHorizontal ="16dp"/>
+
 
     <!-- Botones -->
     <LinearLayout
@@ -48,7 +55,9 @@
         app:layout_constraintTop_toBottomOf="@id/tvApodo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp">
+        android:layout_marginTop="8dp"
+        android:paddingEnd="16dp"
+        android:paddingStart="16dp">
 
         <Button
             android:id="@+id/btnEditarUsuario"
