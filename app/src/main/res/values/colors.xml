@@ -2,6 +2,14 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="azul_cielo">#1E88E5</color>
+    <color name="Verde_esmeralda">#43A047</color>
+    <color name="Gris_claro">#F5F5F5</color>
+    <color name="Negro_suave">#212121</color>
+    <color name="Gris_medio">#757575</color>
+    <color name="Rojo_coral">#E53935</color>
+
+
     <color name="ug">#088BD3</color>
 
 </resources>

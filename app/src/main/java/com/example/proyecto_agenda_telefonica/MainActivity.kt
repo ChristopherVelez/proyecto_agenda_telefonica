@@ -173,7 +173,6 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
     }
     override fun onResume() {
         super.onResume()
-        // Refrescar al volver a la actividad
         cargarUsuariosConTelefonos()
     }
 

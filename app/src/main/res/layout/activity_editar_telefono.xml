@@ -13,7 +13,7 @@
         android:id="@+id/etNumero"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Número"
+        android:hint="@string/telefono"
         android:inputType="phone"
         android:maxLength="10"/>
 
@@ -27,6 +27,7 @@
         android:id="@+id/btnGuardar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Guardar"
+        android:backgroundTint="@color/Verde_esmeralda"
+        android:text="@string/edit"
         android:layout_marginTop="24dp"/>
 </LinearLayout>

@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AgregarTelefonoActivity"
+    android:background="@color/Gris_claro"
     android:orientation="vertical"
     android:padding="16dp">
 
@@ -13,7 +14,7 @@
         android:id="@+id/etTelefono"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Número de teléfono"
+        android:hint="@string/telefono"
         android:inputType="phone" />
 
     <Spinner
@@ -25,5 +26,6 @@
         android:id="@+id/btnGuardarTelefono"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Guardar" />
+        android:backgroundTint="@color/Verde_esmeralda"
+        android:text="@string/save" />
 </LinearLayout>

@@ -17,31 +17,32 @@
 
         <EditText
             android:id="@+id/etCedula"
-            android:hint="Cédula"
+            android:hint="@string/Cedula"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
         <EditText
             android:id="@+id/etNombre"
-            android:hint="Nombre"
+            android:hint="@string/Nombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
         <EditText
             android:id="@+id/etApellido"
-            android:hint="Apellido"
+            android:hint="@string/Apellido"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
         <EditText
             android:id="@+id/etApodo"
-            android:hint="Apodo"
+            android:hint="@string/Apodo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
         <Button
             android:id="@+id/btnGuardar"
-            android:text="Guardar"
+            android:text="@string/save"
+            android:backgroundTint="@color/Verde_esmeralda"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"/>

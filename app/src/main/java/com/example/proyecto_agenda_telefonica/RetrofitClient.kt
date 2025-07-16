@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitClient {
 
-    private const val BASE_URL = "https://89d785da1621.ngrok-free.app/"
+    private const val BASE_URL = "https://11f9620dcab8.ngrok-free.app/"
 
     private fun getToken(): String {
         val prefs = MyApp.instance.getSharedPreferences("agenda_prefs", Context.MODE_PRIVATE)

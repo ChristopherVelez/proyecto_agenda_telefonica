@@ -11,7 +11,7 @@
     <TextView android:id="@+id/tvCedula"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Cédula"
+        android:text="@string/Cedula"
         android:textStyle="bold"
         android:textSize="18sp"
         app:layout_constraintTop_toTopOf="parent"
@@ -22,7 +22,7 @@
     <TextView android:id="@+id/tvNombre"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Nombre"
+        android:text="@string/Nombre"
         app:layout_constraintTop_toBottomOf="@id/tvCedula"
         app:layout_constraintStart_toStartOf="parent"
         android:paddingHorizontal ="16dp"/>
@@ -31,7 +31,7 @@
     <TextView android:id="@+id/tvApellido"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Apellido"
+        android:text="@string/Apellido"
         app:layout_constraintTop_toBottomOf="@id/tvNombre"
         app:layout_constraintStart_toStartOf="parent"
         android:paddingHorizontal ="16dp"/>
@@ -40,7 +40,7 @@
     <TextView android:id="@+id/tvApodo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Apodo"
+        android:text="@string/Apodo"
         app:layout_constraintTop_toBottomOf="@id/tvApellido"
         app:layout_constraintStart_toStartOf="parent"
         android:paddingHorizontal ="16dp"/>
@@ -64,14 +64,16 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Editar" />
+            android:backgroundTint="@color/Verde_esmeralda"
+            android:text="@string/edit" />
 
         <Button
             android:id="@+id/btnEliminarUsuario"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Eliminar" />
+            android:backgroundTint="@color/Rojo_coral"
+            android:text="@string/delete" />
     </LinearLayout>
 
     <!-- Lista de teléfonos -->
@@ -90,8 +92,9 @@
         android:id="@+id/btnAgregarTelefono"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Agregar Teléfono"
+        android:text="@string/add_telefono"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="@color/azul_cielo"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

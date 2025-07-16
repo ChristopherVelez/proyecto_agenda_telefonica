@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">proyecto_agenda_telefonica</string>
+    <string name="telefono">Número de teléfono</string>
+    <string name="Cedula">Cédula</string>
+    <string name="Nombre">Nombre</string>
+    <string name="Apellido">Apellido</string>
+    <string name="Apodo">Apodo</string>
+    <string name="edit">Editar</string>
+    <string name="delete">Eliminar</string>
+    <string name="add_telefono">Agregar Teléfono</string>
+    <string name="login">Iniciar Sesión</string>
+    <string name="User">Usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="ingresar">Ingresar</string>
+    <string name="logout">Cerrar Sesión</string>
+    <string name="tipo">Tipo: Personal</string>
+    <string name="save">Guardar</string>
+
+
+
+
 </resources>
